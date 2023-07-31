@@ -25,5 +25,10 @@ def upload_file():
 def hola():
     return jsonify({'message': 'Hola Mundo'}), 200
 
+@app.route('/', methods=['GET'])
+def hola2():
+    return "Prueba ok", 200
+
+
 if __name__ == '__main__':
     app.run(debug=True)
