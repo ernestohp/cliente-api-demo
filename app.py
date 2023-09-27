@@ -17,17 +17,17 @@ def upload_file():
         return jsonify({'error': 'No selected file'}), 400
 
     if file:
-        # filename = file.filename
+        filename = file.filename
         # file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        return jsonify({'message': 'File uploaded successfully'}), 200
+        return jsonify({'message': 'File uploaded successfully - ' + filename}), 200
 
 @app.route('/hola', methods=['GET'])
 def hola():
-    return jsonify({'message': 'Hola Mundo'}), 200
+    return jsonify({'message': 'Hola MundoX'}), 200
 
 @app.route('/', methods=['GET'])
 def hola2():
-    return "Prueba ok", 200
+    return "Prueba okX", 200
 
 
 if __name__ == '__main__':
