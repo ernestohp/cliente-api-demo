@@ -19,7 +19,7 @@ def upload_file():
     if file:
         filename = file.filename
         # file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        return jsonify({'message': 'File uploaded successfully - ' + filename}), 200
+        return jsonify({'message': 'File uploaded successfully  (' + filename + ')'}), 200
 
 @app.route('/hola', methods=['GET'])
 def hola():
