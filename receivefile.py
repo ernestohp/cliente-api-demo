@@ -23,11 +23,11 @@ def upload_file():
 
 @app.route('/hola', methods=['GET'])
 def hola():
-    return jsonify({'message': 'Hola Mundo'}), 200
+    return jsonify({'message': 'Hola MundoX'}), 200
 
 @app.route('/', methods=['GET'])
 def hola2():
-    return "Prueba ok", 200
+    return "Prueba okX", 200
 
 
 if __name__ == '__main__':
