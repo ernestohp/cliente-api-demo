@@ -17,9 +17,9 @@ def upload_file():
         return jsonify({'error': 'No selected file'}), 400
 
     if file:
-        # filename = file.filename
+        filename = file.filename
         # file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        return jsonify({'message': 'File uploaded successfully'}), 200
+        return jsonify({'message': 'File uploaded successfully - '+filename}), 200
 
 @app.route('/hola', methods=['GET'])
 def hola():
