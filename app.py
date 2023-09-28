@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 import os
+import csv
 
 app = Flask(__name__)
 
@@ -20,6 +21,31 @@ def upload_file():
         filename = file.filename
         # file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         return jsonify({'message': 'File uploaded successfully  (' + filename + ')'}), 200
+
+@app.route('/upload2', methods=['POST'])
+def upload_file2():
+    if 'file' not in request.files:
+        return jsonify({'error': 'No file part in the requestX'}), 400
+
+    file = request.files['file']
+
+    if file.filename == '':
+        return jsonify({'error': 'No selected fileX'}), 400
+
+    if file:
+        filename = file.filename
+        msg = 'File uploaded successfully  (' + filename + ') '
+        csvreader = csv.reader(file)
+        nlines = 2
+        cnt = 0
+        for row in csvreader:
+            msg += row
+            if cnt=2:
+                break
+            cnt += 1   
+        return jsonify({'message': msg}), 200
+
+
 
 @app.route('/hola', methods=['GET'])
 def hola():
